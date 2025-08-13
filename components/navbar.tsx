@@ -1,14 +1,6 @@
 "use client";
 
-import {
-  Bell,
-  Heart,
-  Home,
-  Search,
-  Settings,
-  User,
-  User2Icon,
-} from "lucide-react";
+import { Clock, Heart, Home, Search, User, User2Icon } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export const Navbar = () => {
@@ -41,7 +33,7 @@ export const Navbar = () => {
   const navItems = [
     { icon: Home, label: "Home", href: "/" },
     { icon: Search, label: "Search", href: "/search" },
-    { icon: Bell, label: "Notifications", href: "/notifications" },
+    { icon: Clock, label: "New", href: "/new" },
     { icon: Heart, label: "Favorites", href: "/favorites" },
     { icon: User, label: "Profile", href: "/profile" },
   ];
@@ -90,12 +82,8 @@ export const Navbar = () => {
         </div>
       </nav>
 
-      {/* Mobile Bottom Navigation */}
-      <nav
-        className={`lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-gray-900/95 backdrop-blur-md border-t border-gray-800 transition-transform duration-300 ease-in-out ${
-          isVisible ? "translate-y-0" : "translate-y-full"
-        }`}
-      >
+      {/* Mobile Bottom Navigation - Always Visible */}
+      <nav className="lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-gray-900/95 backdrop-blur-md border-t border-gray-800">
         <div className="grid grid-cols-5 h-16">
           {navItems.map((item) => (
             <a

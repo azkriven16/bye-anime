@@ -12,7 +12,7 @@ export function Footer() {
   ];
 
   return (
-    <footer className="px-4 md:px-12 lg:px-16 py-12 border-t mt-auto">
+    <footer className="px-4 md:px-12 lg:px-16 py-12 mb-10 md:mb-0 border-t mt-auto">
       <div className="flex flex-col items-center space-y-8">
         {/* A-Z List Component */}
         <div className="w-full">
