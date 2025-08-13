@@ -51,7 +51,7 @@ export const Navbar = () => {
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
             <div className="flex-shrink-0">
-              <div className="text-white font-bold text-xl">Logo</div>
+              <div className="text-white font-bold text-xl">BYEANIME</div>
             </div>
 
             {/* Desktop Navigation Links */}
