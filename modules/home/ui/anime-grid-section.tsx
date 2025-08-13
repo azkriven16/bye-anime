@@ -1,5 +1,7 @@
 "use client";
 
+import { useEffect, useState } from "react";
+
 interface BaseAnime {
   id: string;
   name: string;
@@ -149,6 +151,12 @@ export const AnimeGridSection = ({
   refetch,
   topAiringAnimes,
 }: AnimeGridSectionProps) => {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   if (isError) {
     return (
       <section className="w-full px-4 py-6">
@@ -173,7 +181,7 @@ export const AnimeGridSection = ({
     <section className="w-full px-4 md:px-8 lg:px-16 py-8">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-          {isLoading ? (
+          {!isMounted || isLoading ? (
             <>
               <LoadingSkeleton />
               <LoadingSkeleton />

@@ -43,10 +43,14 @@ export const TrendingSection = ({
 
   return (
     <section className="w-full px-4 md:px-8 lg:px-16 pb-8">
-      <div className="mb-6">
-        <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">
-          Trending
-        </h2>
+      <div className="mb-8">
+        <div className="flex items-center gap-3 mb-2">
+          <div className="w-1 h-8 bg-blue-600 rounded-full"></div>
+          <h2 className="text-3xl font-bold text-white">Trending Anime</h2>
+        </div>
+        <p className="text-gray-400">
+          Discover what's popular right now in the anime world.
+        </p>
       </div>
 
       <Carousel
@@ -208,10 +212,14 @@ const TrendingSkeleton = () => {
 const TrendingError = ({ onRetry }: { onRetry?: () => void }) => {
   return (
     <section className="w-full px-4 md:px-8 lg:px-16 py-8">
-      <div className="mb-6">
-        <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">
-          Trending
-        </h2>
+      <div className="mb-8">
+        <div className="flex items-center gap-3 mb-2">
+          <div className="w-1 h-8 bg-blue-600 rounded-full"></div>
+          <h2 className="text-3xl font-bold text-white">Trending Anime</h2>
+        </div>
+        <p className="text-gray-400">
+          Discover what's popular right now in the anime world.
+        </p>
       </div>
 
       <div className="text-center py-12 bg-gray-800/30 rounded-lg">
@@ -238,10 +246,14 @@ const TrendingError = ({ onRetry }: { onRetry?: () => void }) => {
 const TrendingEmpty = () => {
   return (
     <section className="w-full px-4 md:px-8 lg:px-16 py-8">
-      <div className="mb-6">
-        <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">
-          Trending
-        </h2>
+      <div className="mb-8">
+        <div className="flex items-center gap-3 mb-2">
+          <div className="w-1 h-8 bg-blue-600 rounded-full"></div>
+          <h2 className="text-3xl font-bold text-white">Trending Anime</h2>
+        </div>
+        <p className="text-gray-400">
+          Discover what's popular right now in the anime world.
+        </p>
       </div>
 
       <div className="text-center py-12 bg-gray-800/30 rounded-lg">
