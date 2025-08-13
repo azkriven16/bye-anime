@@ -14,7 +14,6 @@ export function HomeView() {
   const { data, isLoading, isError, refetch } = useQuery(
     trpc.home.queryOptions()
   );
-  console.log(data?.data.top10Animes);
   return (
     <main>
       <CarouselSection
