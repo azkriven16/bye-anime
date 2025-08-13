@@ -131,8 +131,9 @@ function AnimeCarouselCard({ anime, index, data }: AnimeCarouselCardProps) {
           </div>
         </div>
         {/* Gradient overlays */}
-        <div className="hidden sm:block absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent" />
+        <div className="hidden sm:block absolute inset-0 bg-gradient-to-r from-black/20 via-black/10 to-transparent" />
         <div className="hidden sm:block absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
         <div className="block sm:hidden absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent" />
         <div className="block sm:hidden absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
       </div>

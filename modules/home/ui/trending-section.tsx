@@ -42,7 +42,7 @@ export const TrendingSection = ({
   }
 
   return (
-    <section className="w-full px-4 md:px-8 lg:px-16 py-8">
+    <section className="w-full px-4 md:px-8 lg:px-16 pb-8">
       <div className="mb-6">
         <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">
           Trending
@@ -65,7 +65,7 @@ export const TrendingSection = ({
         className="w-full"
       >
         <CarouselContent className="-ml-2 md:-ml-4">
-          {data.map((anime, index) => (
+          {data.map((anime) => (
             <CarouselItem
               key={anime.id}
               className="pl-2 md:pl-4 basis-1/3 md:basis-1/4 lg:basis-1/5 xl:basis-1/6"
@@ -120,16 +120,16 @@ function TrendingAnimeCard({ anime }: TrendingAnimeCardProps) {
 
         {/* Rank Badge */}
         <div className="absolute top-2 left-2 z-10">
-          <div className="bg-red-600 text-white px-2 py-1 rounded text-sm font-bold shadow-lg">
+          <div className="bg-red-600 text-white px-1 sm:px-2 py-1 rounded text-xs sm:text-sm font-bold shadow-lg">
             #{String(anime.rank).padStart(2, "0")}
           </div>
         </div>
 
         {/* Large Rank Number */}
-        <div className="group-hover:hidden absolute bottom-0 left-0 right-0 z-10">
+        <div className="group-hover:hidden hidden sm:block absolute bottom-0 left-0 right-0 z-10">
           <div className="text-white text-right p-3">
             <span
-              className="text-6xl md:text-7xl font-black opacity-80 leading-none drop-shadow-2xl"
+              className="text-3xl md:text-4xl font-black opacity-80 leading-none drop-shadow-2xl"
               style={{
                 fontFamily: "Impact, Arial Black, sans-serif",
                 WebkitTextStroke: "2px rgba(0,0,0,0.3)",
