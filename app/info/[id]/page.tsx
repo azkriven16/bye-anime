@@ -9,7 +9,7 @@ import { ErrorBoundary } from "react-error-boundary";
 export default async function AnimeInfo({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
 

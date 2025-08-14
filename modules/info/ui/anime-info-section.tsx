@@ -2,7 +2,7 @@
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 import { Check, Loader2, Play, Plus, Share } from "lucide-react";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
