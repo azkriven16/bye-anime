@@ -9,6 +9,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import Autoplay from "embla-carousel-autoplay";
 import { useEffect, useState } from "react";
 import { TrendingAnime } from "../types";
+import Link from "next/link";
 
 interface TrendingSectionProps {
   data: TrendingAnime[];
@@ -94,7 +95,10 @@ function TrendingAnimeCard({ anime }: TrendingAnimeCardProps) {
   const [imageError, setImageError] = useState(false);
 
   return (
-    <div className="group relative cursor-pointer transition-all duration-300 hover:scale-105">
+    <Link
+      href={`/info/${anime.id}`}
+      className="group relative cursor-pointer transition-all duration-300 hover:scale-105"
+    >
       {/* Main Card Container */}
       <div className="relative aspect-[3/4] rounded-lg overflow-hidden bg-gray-800">
         {/* Image */}
@@ -187,7 +191,7 @@ function TrendingAnimeCard({ anime }: TrendingAnimeCardProps) {
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
 

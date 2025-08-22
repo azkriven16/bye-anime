@@ -80,7 +80,7 @@ export const AnimeInfoSection = ({
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
-      className="min-h-screen bg-black text-white relative overflow-hidden"
+      className="min-h-screen bg-black text-white relative overflow-hidden px-4 md:px-8 py-8 md:py-12"
     >
       <motion.div
         initial={{ scale: 1.2, opacity: 0 }}
@@ -108,7 +108,9 @@ export const AnimeInfoSection = ({
           className="mb-6 md:mb-8"
         >
           <div className="flex items-center gap-2 text-sm text-gray-400">
-            <span className="text-white">Home</span>
+            <Link href="/" className="text-white">
+              Home
+            </Link>
             <span>•</span>
             <span className="text-white">TV</span>
             <span>•</span>
@@ -215,20 +217,6 @@ export const AnimeInfoSection = ({
                       Watch now
                     </Button>
                   </Link>
-                </motion.div>
-
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="border-2 border-white text-white hover:bg-white hover:text-black font-semibold px-6 md:px-8 py-2 md:py-3 rounded-full bg-transparent w-full sm:w-auto transition-all duration-200"
-                  >
-                    <Plus className="w-4 md:w-5 h-4 md:h-5 mr-2" />
-                    Add to List
-                  </Button>
                 </motion.div>
 
                 <motion.div

@@ -1,6 +1,7 @@
 "use client";
 
 import { Clock, Heart, Home, Search, User, User2Icon } from "lucide-react";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export const Navbar = () => {
@@ -50,9 +51,9 @@ export const Navbar = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
-            <div className="flex-shrink-0">
+            <Link href="/" className="flex-shrink-0">
               <div className="text-white font-bold text-xl">BYEANIME</div>
-            </div>
+            </Link>
 
             {/* Desktop Navigation Links */}
             <div className="hidden md:block">

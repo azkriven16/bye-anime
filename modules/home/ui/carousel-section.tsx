@@ -196,7 +196,7 @@ function AnimeCarouselCard({ anime, index, data }: AnimeCarouselCardProps) {
 
           {/* Action Buttons */}
           <div className="flex items-center gap-2 sm:gap-4">
-            <Link prefetch href={`/${anime.id}`}>
+            <Link prefetch href={`/info/${anime.id}`}>
               <button className="cursor-pointer bg-white text-black px-4 sm:px-8 py-2 sm:py-3 rounded-md sm:rounded-lg font-bold text-sm sm:text-lg hover:bg-gray-200 transition-all flex items-center flex-1 sm:flex-none justify-center shadow-lg hover:shadow-xl transform hover:scale-105">
                 <svg
                   className="w-4 h-4 sm:w-6 sm:h-6 mr-1 sm:mr-2"
@@ -208,38 +208,25 @@ function AnimeCarouselCard({ anime, index, data }: AnimeCarouselCardProps) {
                 Play
               </button>
             </Link>
-            <button className="bg-gray-600/70 backdrop-blur-sm text-white px-3 sm:px-8 py-2 sm:py-3 rounded-md sm:rounded-lg font-bold text-sm sm:text-lg hover:bg-gray-600/90 transition-all flex items-center border border-gray-500 shadow-lg hover:shadow-xl transform hover:scale-105">
-              <svg
-                className="w-4 h-4 sm:w-6 sm:h-6 mr-1 sm:mr-2"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-                />
-              </svg>
-              <span className="hidden sm:inline">My List</span>
-              <span className="sm:hidden">List</span>
-            </button>
-            <button className="bg-gray-600/70 backdrop-blur-sm text-white p-2 sm:p-3 rounded-full hover:bg-gray-600/90 transition-all border border-gray-500 shadow-lg hover:shadow-xl transform hover:scale-105">
-              <svg
-                className="w-4 h-4 sm:w-6 sm:h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-            </button>
+            <Link prefetch href={`/info/${anime.id}`}>
+              <button className="bg-gray-600/70 backdrop-blur-sm text-white px-3 sm:px-8 py-2 sm:py-3 rounded-md sm:rounded-lg font-bold text-sm sm:text-lg hover:bg-gray-600/90 transition-all flex items-center border border-gray-500 shadow-lg hover:shadow-xl transform hover:scale-105">
+                <svg
+                  className="w-4 h-4 sm:w-6 sm:h-6 mr-1 sm:mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                  />
+                </svg>
+                <span className="hidden sm:inline">More Info</span>
+                <span className="sm:hidden">Info</span>
+              </button>
+            </Link>
           </div>
         </div>
       </div>

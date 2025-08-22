@@ -1,20 +1,28 @@
 "use client";
 
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { Play, Search } from "lucide-react";
 import { Episode, EpisodesResponse } from "../types";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 interface Props {
   data: EpisodesResponse | undefined;
   isLoading: boolean;
   isError: boolean;
   refetch: () => void;
+  setEpId: Dispatch<SetStateAction<string>>;
 }
 
-export const EpisodeListSection = ({ data, isLoading, isError }: Props) => {
+export const EpisodeListSection = ({
+  data,
+  isLoading,
+  isError,
+  setEpId,
+  refetch,
+}: Props) => {
   const [searchTerm, setSearchTerm] = useState("");
 
   if (isLoading) {
@@ -52,6 +60,11 @@ export const EpisodeListSection = ({ data, isLoading, isError }: Props) => {
   const handlePlayEpisode = (episodeId: string) => {
     // Handle episode play logic here
     console.log("Playing episode:", episodeId);
+    setEpId(episodeId);
+
+    // Open in a new tab (example link with episodeId)
+    const url = `https://hianime.to/watch/${episodeId}`;
+    window.open(url, "_blank");
   };
 
   return (
@@ -76,42 +89,37 @@ export const EpisodeListSection = ({ data, isLoading, isError }: Props) => {
       </div>
 
       {/* Episodes List */}
-      <div className="space-y-2">
-        {filteredEpisodes.map((episode) => (
-          <Card
-            key={episode.episodeId}
-            className="p-4 bg-card border-border hover:bg-accent/50 transition-colors"
-          >
-            <div className="flex items-center justify-between">
-              <div className="flex items-center space-x-4">
-                <div className="flex-shrink-0">
-                  <span className="text-lg font-semibold text-primary bg-primary/10 px-3 py-1 rounded-md">
-                    {episode.number}
-                  </span>
-                </div>
-                <div className="flex-1">
-                  <h3 className="font-medium text-foreground line-clamp-1">
-                    {episode.title}
-                  </h3>
-                  {episode.isFiller && (
-                    <span className="text-xs text-muted-foreground bg-muted px-2 py-1 rounded mt-1 inline-block">
-                      Filler
+      <ScrollArea className="h-[200px] md:h-[400px] w-full rounded-md border p-2">
+        <div className="space-y-2">
+          {filteredEpisodes.map((episode) => (
+            <Card
+              key={episode.episodeId}
+              onClick={() => handlePlayEpisode(episode.episodeId)}
+              className="p-4 bg-card border-border hover:bg-accent/50 transition-colors cursor-pointer"
+            >
+              <div className="flex items-center justify-between">
+                <div className="flex items-center space-x-4">
+                  <div className="flex-shrink-0">
+                    <span className="text-base md:text-lg font-semibold text-primary bg-primary/10 px-3 py-1 rounded-md">
+                      {episode.number}
                     </span>
-                  )}
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-sm font-medium text-foreground line-clamp-1">
+                      {episode.title}
+                    </h3>
+                    {episode.isFiller && (
+                      <span className="text-xs text-muted-foreground bg-muted px-2 py-1 rounded mt-1 inline-block">
+                        Filler
+                      </span>
+                    )}
+                  </div>
                 </div>
               </div>
-              <Button
-                size="sm"
-                onClick={() => handlePlayEpisode(episode.episodeId)}
-                className="flex-shrink-0 bg-primary hover:bg-primary/90"
-              >
-                <Play className="h-4 w-4" />
-              </Button>
-            </div>
-          </Card>
-        ))}
-      </div>
-
+            </Card>
+          ))}
+        </div>
+      </ScrollArea>
       {filteredEpisodes.length === 0 && searchTerm && (
         <div className="text-center py-8">
           <p className="text-muted-foreground">

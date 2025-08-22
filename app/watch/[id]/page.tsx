@@ -15,18 +15,9 @@ export default async function AnimeInfo({
   const { id } = await params;
 
   const queryClient = getQueryClient();
-
   void queryClient.prefetchQuery(
-    trpc.watch.episodesStreamingLinks.queryOptions({
-      animeEpisodeId: "one-piece-100?ep=2142",
-      category: "sub",
-      server: "hd-1",
-    })
-  );
-
-  void queryClient.prefetchQuery(
-    trpc.watch.episodesServers.queryOptions({
-      animeEpisodeId: "one-piece-100?ep=2142",
+    trpc.watch.episodes.queryOptions({
+      animeId: id,
     })
   );
 

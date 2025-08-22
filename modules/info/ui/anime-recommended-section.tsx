@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { RecommendedAnime } from "../types";
+import Link from "next/link";
 
 interface UpcomingSectionProps {
   data: RecommendedAnime[];
@@ -205,7 +206,10 @@ const AnimeCard = ({ anime }: { anime: RecommendedAnime }) => {
   );
 
   return (
-    <div className="group cursor-pointer relative h-full">
+    <Link
+      href={`/info/${anime.id}`}
+      className="group cursor-pointer relative h-full"
+    >
       <div className="rounded-lg overflow-hidden shadow-lg transition-all duration-300 group-hover:shadow-2xl group-hover:shadow-black/50 transform-gpu group-hover:scale-105 origin-center h-full flex flex-col">
         <div className="relative aspect-[3/4] overflow-hidden flex-shrink-0">
           {/* Image with proper error handling */}
@@ -238,12 +242,10 @@ const AnimeCard = ({ anime }: { anime: RecommendedAnime }) => {
           {/* Hover controls - Netflix style */}
           <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
             <div className="flex items-center gap-3">
-              <button className="w-12 h-12 bg-white rounded-full flex items-center justify-center hover:bg-zinc-200 transition-colors group/play">
+              <button className="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-zinc-200 transition-colors group/play">
                 <Play className="w-5 h-5 text-black ml-0.5 group-hover/play:scale-110 transition-transform" />
               </button>
-              <button className="w-10 h-10 bg-zinc-800/80 rounded-full flex items-center justify-center hover:bg-zinc-700 transition-colors border-2 border-zinc-600">
-                <Plus className="w-5 h-5 text-white" />
-              </button>
+
               <button className="w-10 h-10 bg-zinc-800/80 rounded-full flex items-center justify-center hover:bg-zinc-700 transition-colors border-2 border-zinc-600">
                 <Info className="w-4 h-4 text-white" />
               </button>
@@ -327,6 +329,6 @@ const AnimeCard = ({ anime }: { anime: RecommendedAnime }) => {
           )}
         </div>
       </div>
-    </div>
+    </Link>
   );
 };

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 interface BaseAnime {
@@ -31,7 +32,10 @@ interface AnimeCardProps {
 
 const AnimeCard = ({ anime, rank }: AnimeCardProps) => {
   return (
-    <div className="flex items-center gap-3 p-2 rounded-lg hover:bg-accent/50 transition-all duration-200 group cursor-pointer border border-transparent hover:border-border">
+    <Link
+      href={`/info/${anime.id}`}
+      className="flex items-center gap-3 p-2 rounded-lg hover:bg-accent/50 transition-all duration-200 group cursor-pointer border border-transparent hover:border-border"
+    >
       <div className="relative flex-shrink-0">
         <img
           src={anime.poster || "/placeholder.svg"}
@@ -68,7 +72,7 @@ const AnimeCard = ({ anime, rank }: AnimeCardProps) => {
           </span>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
