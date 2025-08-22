@@ -209,7 +209,7 @@ function AnimeCarouselCard({ anime, index, data }: AnimeCarouselCardProps) {
               </button>
             </Link>
             <Link prefetch href={`/info/${anime.id}`}>
-              <button className="bg-gray-600/70 backdrop-blur-sm text-white px-3 sm:px-8 py-2 sm:py-3 rounded-md sm:rounded-lg font-bold text-sm sm:text-lg hover:bg-gray-600/90 transition-all flex items-center border border-gray-500 shadow-lg hover:shadow-xl transform hover:scale-105">
+              <button className="bg-gray-600/70 backdrop-blur-sm text-white px-3 sm:px-8 py-2 sm:py-3 rounded-md sm:rounded-lg font-bold text-sm sm:text-lg hover:bg-gray-600/90 transition-all flex items-center border border-gray-500 shadow-lg hover:shadow-xl transform hover:scale-105 cursor-pointer">
                 <svg
                   className="w-4 h-4 sm:w-6 sm:h-6 mr-1 sm:mr-2"
                   fill="none"

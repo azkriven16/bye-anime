@@ -68,25 +68,25 @@ export function Footer() {
           {/* Right column - Links */}
           <div className="flex flex-wrap justify-center md:justify-end gap-8 text-sm md:flex-shrink-0">
             <Link
-              href="/terms"
+              href="#"
               className="text-muted-foreground hover:text-primary transition-colors font-medium"
             >
               Terms of service
             </Link>
             <Link
-              href="/dmca"
+              href="#"
               className="text-muted-foreground hover:text-primary transition-colors font-medium"
             >
               DMCA
             </Link>
             <Link
-              href="/contact"
+              href="#"
               className="text-muted-foreground hover:text-primary transition-colors font-medium"
             >
               Contact
             </Link>
             <Link
-              href="/app"
+              href="#"
               className="text-muted-foreground hover:text-primary transition-colors font-medium"
             >
               ByeAnime App

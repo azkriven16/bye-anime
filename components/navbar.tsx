@@ -33,21 +33,22 @@ export const Navbar = () => {
 
   const navItems = [
     { icon: Home, label: "Home", href: "/" },
-    { icon: Search, label: "Latest", href: "/search" },
     { icon: Clock, label: "Trending", href: "/new" },
+    { icon: Search, label: "Latest", href: "/search" },
     { icon: Heart, label: "Genres", href: "/favorites" },
+    { icon: Heart, label: "Upcoming", href: "/x" },
   ];
 
   return (
     <>
-      <div className="h-14 bg-black" />
+      <div className="h-14" />
       {/* Desktop Navbar */}
       <nav
         className={`fixed top-0 left-0 right-0 z-50 bg-black transition-transform duration-300 ease-in-out lg:block hidden ${
           isVisible ? "translate-y-0" : "-translate-y-full"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="w-full px-4 md:px-8 lg:px-16">
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
             <Link href="/" className="flex-shrink-0">
@@ -73,9 +74,12 @@ export const Navbar = () => {
             {/* Desktop Right Side */}
             <div className="hidden md:block">
               <div className="ml-4 flex items-center md:ml-6">
-                <button className="bg-gray-800 p-2 rounded-full text-gray-400 hover:text-white hover:bg-gray-700 transition-colors duration-200">
+                <Link
+                  href="/search"
+                  className="bg-gray-800 p-2 rounded-full text-gray-400 hover:text-white hover:bg-gray-700 transition-colors duration-200"
+                >
                   <Search className="h-5 w-5" />
-                </button>
+                </Link>
               </div>
             </div>
           </div>
@@ -106,9 +110,12 @@ export const Navbar = () => {
       >
         <div className="flex justify-between items-center h-14 px-4">
           <div className="text-white font-bold text-lg">Logo</div>
-          <button className="bg-gray-800 p-2 rounded-full text-gray-400 hover:text-white hover:bg-gray-700 transition-colors duration-200">
+          <Link
+            href="/search"
+            className="bg-gray-800 p-2 rounded-full text-gray-400 hover:text-white hover:bg-gray-700 transition-colors duration-200"
+          >
             <Search className="h-4 w-4" />
-          </button>
+          </Link>
         </div>
       </nav>
     </>
