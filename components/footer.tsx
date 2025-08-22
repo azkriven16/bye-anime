@@ -1,13 +1,18 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export function Footer() {
+  const pathname = usePathname();
+
   const alphabetItems = [
-    { label: "All", href: "/anime/all" },
-    { label: "#", href: "/anime/numeric" },
-    { label: "0-9", href: "/anime/0-9" },
+    { label: "All", href: "/atoz/all" },
+    { label: "#", href: "/atoz/other" },
+    { label: "0-9", href: "/atoz/0-9" },
     ...Array.from({ length: 26 }, (_, i) => {
       const letter = String.fromCharCode(65 + i);
-      return { label: letter, href: `/anime/${letter.toLowerCase()}` };
+      return { label: letter, href: `/atoz/${letter.toLowerCase()}` };
     }),
   ];
 
@@ -27,15 +32,23 @@ export function Footer() {
 
           {/* Alphabet navigation */}
           <div className="flex flex-wrap justify-center md:justify-start gap-1 md:gap-2">
-            {alphabetItems.map((item) => (
-              <Link
-                key={item.label}
-                href={item.href}
-                className="px-2 py-1 md:px-3 md:py-2 text-xs md:text-sm font-medium bg-secondary/50 text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors rounded border border-border/50 hover:border-primary min-w-[32px] md:min-w-[40px] text-center"
-              >
-                {item.label}
-              </Link>
-            ))}
+            {alphabetItems.map((item) => {
+              const isActive = pathname === item.href;
+              return (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className={`px-2 py-1 md:px-3 md:py-2 text-xs md:text-sm font-medium rounded border min-w-[32px] md:min-w-[40px] text-center transition-colors
+                    ${
+                      isActive
+                        ? "bg-primary text-primary-foreground border-primary"
+                        : "bg-secondary/50 text-muted-foreground border-border/50 hover:bg-primary hover:text-primary-foreground hover:border-primary"
+                    }`}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
           </div>
         </div>
 

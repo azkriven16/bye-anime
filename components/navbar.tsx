@@ -33,10 +33,9 @@ export const Navbar = () => {
 
   const navItems = [
     { icon: Home, label: "Home", href: "/" },
-    { icon: Search, label: "Search", href: "/search" },
-    { icon: Clock, label: "New", href: "/new" },
-    { icon: Heart, label: "Favorites", href: "/favorites" },
-    { icon: User, label: "Profile", href: "/profile" },
+    { icon: Search, label: "Latest", href: "/search" },
+    { icon: Clock, label: "Trending", href: "/new" },
+    { icon: Heart, label: "Genres", href: "/favorites" },
   ];
 
   return (
@@ -75,7 +74,7 @@ export const Navbar = () => {
             <div className="hidden md:block">
               <div className="ml-4 flex items-center md:ml-6">
                 <button className="bg-gray-800 p-2 rounded-full text-gray-400 hover:text-white hover:bg-gray-700 transition-colors duration-200">
-                  <User2Icon className="h-5 w-5" />
+                  <Search className="h-5 w-5" />
                 </button>
               </div>
             </div>
@@ -108,7 +107,7 @@ export const Navbar = () => {
         <div className="flex justify-between items-center h-14 px-4">
           <div className="text-white font-bold text-lg">Logo</div>
           <button className="bg-gray-800 p-2 rounded-full text-gray-400 hover:text-white hover:bg-gray-700 transition-colors duration-200">
-            <User2Icon className="h-4 w-4" />
+            <Search className="h-4 w-4" />
           </button>
         </div>
       </nav>

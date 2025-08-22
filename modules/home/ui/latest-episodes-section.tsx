@@ -4,17 +4,10 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import {
-  AlertTriangle,
-  Clock,
-  Info,
-  Play,
-  Plus,
-  RefreshCw,
-} from "lucide-react";
+import { AlertTriangle, Clock, Info, Play, RefreshCw } from "lucide-react";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { LatestEpisodeAnime } from "../types";
-import Link from "next/link";
 
 interface LatestEpisodesSectionProps {
   data: LatestEpisodeAnime[];

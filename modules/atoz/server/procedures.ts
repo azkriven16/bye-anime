@@ -1,15 +1,16 @@
 import { baseProcedure } from "@/trpc/init";
 import { TRPCError } from "@trpc/server";
 import z from "zod";
+import { HiAnimeAZListResponse } from "../types";
 
 export const aToZRouter = baseProcedure
   .input(
     z.object({
-      option: z.string(),
-      page: z.number(),
+      option: z.string(), // could also narrow with z.enum([...]) if you want
+      page: z.number().optional().default(1),
     })
   )
-  .query(async ({ input }): Promise<any> => {
+  .query(async ({ input }): Promise<HiAnimeAZListResponse> => {
     const BASE_URL = process.env.API;
 
     if (!BASE_URL) {
@@ -32,18 +33,16 @@ export const aToZRouter = baseProcedure
         });
       }
 
-      const data: any = await response.json();
+      const data = (await response.json()) as HiAnimeAZListResponse;
 
       return data;
     } catch (error) {
       console.error("Error fetching HiAnime data:", error);
 
-      // If it's already a TRPCError, re-throw it
       if (error instanceof TRPCError) {
         throw error;
       }
 
-      // Handle other types of errors
       throw new TRPCError({
         code: "INTERNAL_SERVER_ERROR",
         message: "Failed to fetch anime data",
